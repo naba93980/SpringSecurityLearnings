@@ -15,26 +15,26 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	// -------------------jdbc authentication---------------------
-
-	@Autowired
-   private DataSource dataSource;
-
-	@Override
-   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-       auth.jdbcAuthentication().dataSource(dataSource);
-   }
+//	-------------------jdbc authentication---------------------
+//
+//	@Autowired
+//    private DataSource dataSource;
+//
+//	@Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication().dataSource(dataSource);
+//    }
 	
 	
 //	-------------------jpa authentication---------------------
 	
-	// @Autowired
-	// private UserDetailsService userDetailsService;
+	@Autowired
+	private UserDetailsService userDetailsService;
 	
-	// @Override
-	// protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	// 	auth.userDetailsService(userDetailsService);
-	// }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService);
+	}
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

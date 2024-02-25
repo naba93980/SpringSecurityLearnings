@@ -8,7 +8,7 @@ public class HomeResource {
     
     @GetMapping("/")
     public String home(){
-        return "welcome";
+        return "welcome Nabajyoti";
     }
     
     @GetMapping("/admin")
